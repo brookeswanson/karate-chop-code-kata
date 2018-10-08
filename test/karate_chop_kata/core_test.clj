@@ -59,4 +59,9 @@
   (testing "chop-recursion method works as expected"
     (let [run-cases (test-cases subject/chop-v1)]
       (is (= [] run-cases))
+      (is (= 0 (count run-cases)))))
+
+  (testing "chop-keep-indexed method works as expected"
+    (let [run-cases (test-cases subject/chop-v2)]
+      (is (= [] run-cases))
       (is (= 0 (count run-cases))))))

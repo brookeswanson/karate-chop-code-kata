@@ -30,3 +30,9 @@
        (and (> int (nth vector middle))
             (<= (inc middle) len))
        (recur int (subvec vector (inc middle) len) (inc middle))))))
+
+(defn chop-v2
+  "Given an int, and a sorted vector of ints, returns the index or -1
+   if nothing is found. Uses keep-indexed."
+  [int vector]
+  (or (first (keep-indexed #(when (= int %2) %1) vector)) -1))
