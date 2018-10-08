@@ -36,3 +36,16 @@
    if nothing is found. Uses keep-indexed."
   [int vector]
   (or (first (keep-indexed #(when (= int %2) %1) vector)) -1))
+
+(defn chop-v3
+  "Given an int, and a sorted vector of ints, returns the index or -1
+   if nothing is found."
+  [int vector]
+  (loop [start 0
+         end (count vector)]
+    (let [middle (quot (+ start end) 2)
+          middle-value (get vector middle -1)]
+      (cond (> start end) -1
+            (< int middle-value) (recur start (dec middle))
+            (> int middle-value) (recur (inc middle) end)
+            (= int middle-value) middle))))
