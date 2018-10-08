@@ -64,4 +64,9 @@
   (testing "chop-keep-indexed method works as expected"
     (let [run-cases (test-cases subject/chop-v2)]
       (is (= [] run-cases))
+      (is (= 0 (count run-cases)))))
+
+  (testing "chop-loop method works as expected"
+    (let [run-cases (test-cases subject/chop-v3)]
+      (is (= [] run-cases))
       (is (= 0 (count run-cases))))))
